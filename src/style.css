@@ -1,0 +1,121 @@
+.html {
+  background-color: #f2e6da;
+}
+.background {
+  background-color: #c2b9af;
+  background-position: 100%;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.93),
+      rgba(255, 255, 255, 0.93)
+    ),
+    url("clock.svg");
+  background-position-x: center;
+  background-position-y: center;
+  background-repeat: no-repeat;
+}
+
+.container {
+  padding: 50px 100px 40px 100px;
+  font-family: "Mukta Malar", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.header {
+  padding: 0 200px;
+  display: flex;
+}
+h1.title {
+  color: #494f85;
+  text-transform: uppercase;
+  font-size: 100px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+.world-clock-options {
+  text-align: center;
+}
+
+select.world-clock-options-select-element {
+  position: relative;
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+  background: url(downarrow.svg) 96% / 10% no-repeat #fff;
+  background-size: 2em;
+  padding: 20px 50px 20px 30px;
+  border-radius: 20px;
+  color: #494f85;
+  border: 0.3px solid #494f85;
+  font-size: 30px;
+  max-height: fit-content;
+  height: 100%;
+  min-width: min-content;
+  width: 1000px;
+  margin: 20px auto;
+  font-weight: 700;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+}
+option {
+  color: #494f8590;
+}
+
+.displayed-citys {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.city {
+  background-color: #fff;
+  border: 0.3px solid #494f85;
+  padding: 20px 45px;
+  border-radius: 30px;
+  padding-top: 30px;
+  text-align: center;
+  color: #494f85;
+}
+.displayed-citys h2 {
+  font-size: 60px;
+  font-weight: 900;
+  margin: 0 auto;
+  line-height: 1;
+  padding-bottom: 5px;
+}
+
+.date {
+  font-size: 16px;
+  color: #494f8590;
+  margin: 0 auto;
+  padding: 0;
+  line-height: 1;
+}
+
+.time {
+  font-size: 45px;
+  font-weight: 900;
+  margin: 0 auto;
+}
+
+.time span {
+  font-size: 25px;
+  color: #494f8590;
+  vertical-align: middle;
+  margin: 0 auto;
+  padding: 0;
+}
+
+footer {
+  color: #494f8590;
+  text-align: center;
+}
+strong {
+  color: #494f85;
+}
+footer a {
+  color: #494f85;
+  text-decoration: none;
+}
