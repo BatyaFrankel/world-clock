@@ -23,12 +23,5 @@ function updateTime() {
   });
 }
 
-
-
 updateTime();
 setInterval(updateTime, 1000);
-/*function displayWorldClock(event){
-  if (event.target.value.length)
-}
-WorldClockElement = document.querySelector("#world-clock");
-WorldClockElement.addEventListerner(Change, displayWorldClock);
