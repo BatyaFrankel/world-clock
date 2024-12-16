@@ -1,52 +1,18 @@
-let home = false;
-
-function displayWorldClock(event) {
-  let timezone;
-  let cityTime;
-  home = true;
-  clearTimeout(updateTime);
-
-  if (event.target.value.length > 0) {
-    timezone = event.target.value;
-    cityTime = moment.tz(timezone);
-  }
-  if (event.target.value === "current") {
-    timezone = moment.tz.guess();
-    cityTime = moment.tz(timezone);
-  }
-
-  let city = timezone.replace("_", " ").split("/")[1];
-
-  let displayedCitysElement = document.querySelector("#displayed-citys");
-  displayedCitysElement.innerHTML = "";
-  displayedCitysElement.innerHTML = `
-      <div class="city">
-        <h2 class="city-timezone">${city}</h2>
-        <div class="time">${cityTime.format("h:mm:ss")} <span>${cityTime.format(
-    "A"
-  )}</span></div>
-        <div class="date">${cityTime.format("dddd, D MMMM YYYY")}</div>
-      </div>
-    `;
-
-  setInterval(displayWorldClock, 1000);
-  return home;
-}
+let citiesElement = document.querySelector("#cities");
+let displayedCitiesElement = document.querySelector("#displayed-cities");
 
 function updateTime() {
-  let displayedCitysElement = document.querySelector("#displayed-citys");
-
   const cities = [
     { name: "London", timezone: "Europe/London" },
     { name: "Sydney", timezone: "Australia/Sydney" },
     { name: "Tokyo", timezone: "Asia/Tokyo" },
     { name: "New York", timezone: "America/New_York" },
   ];
-  displayedCitysElement.innerHTML = "";
+  displayedCitiesElement.innerHTML = "";
   cities.forEach(function (city) {
     let cityTime = moment().tz(city.timezone);
 
-    displayedCitysElement.innerHTML += `
+    displayedCitiesElement.innerHTML += `
       <div class="city">
         <h2 class="city-timezone">${city.name}</h2>
         <div class="time">${cityTime.format("h:mm:ss")} <span>${cityTime.format(
@@ -58,17 +24,39 @@ function updateTime() {
   });
 }
 
-if (home === true) {
-  clearTimeout(updateTime);
-  WorldClockElement = document.querySelector("#world-clock");
-  WorldClockElement.addEventListener("change", displayWorldClock);
-  setInterval(displayWorldClock, 1000);
-  console.log(home);
-} else {
-  if (home === false) {
-    updateTime();
-    WorldClockElement = document.querySelector("#world-clock");
-    WorldClockElement.addEventListener("change", displayWorldClock);
-    setInterval(updateTime, 1000);
+function updateCity(event) {
+  citiesElement.classList.add = "displayed-citys";
+  citiesElement.classList.add = "world-clock-display";
+  displayedCitiesElement.style.display = "none";
+
+  let cityTimeZone = event.target.value;
+  if (cityTimeZone === "current") {
+    cityTimeZone = moment.tz.guess();
   }
+
+  if (cityTimeZone === "") {
+    updateCity();
+  }
+
+  let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+  let cityTime = moment().tz(cityTimeZone);
+
+  citiesElement.innerHTML = `
+      <div class="city">
+        <h2 class="city-timezone">${cityName}</h2>
+        <div class="time">${cityTime.format("h:mm:ss")} <span>${cityTime.format(
+    "A"
+  )}</span></div>
+        <div class="date">${cityTime.format("dddd, D MMMM YYYY")}</div>
+      </div>
+      <a href="/" class="all-cities">
+    All cities
+  </a>
+    `;
 }
+
+updateTime();
+setInterval(updateTime, 1000);
+
+let citiesSelectElement = document.querySelector("#world-clock");
+citiesSelectElement.addEventListener("change", updateCity);

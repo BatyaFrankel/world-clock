@@ -62,7 +62,7 @@ option {
   color: #494f8590;
 }
 
-.displayed-citys {
+.displayed-cities {
   display: flex;
   justify-content: space-around;
   margin: 50px auto;
@@ -78,7 +78,7 @@ option {
   text-align: center;
   color: #494f85;
 }
-.displayed-citys h2 {
+.displayed-cities h2 {
   font-size: 60px;
   font-weight: 900;
   margin: 0 auto;
@@ -106,6 +106,29 @@ option {
   vertical-align: middle;
   margin: 0 auto;
   padding: 0;
+}
+.cities {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  width: 40%;
+}
+.cities h2 {
+  font-size: 60px;
+  font-weight: 900;
+  margin: 0 auto;
+  line-height: 1;
+  padding-bottom: 5px;
+}
+
+.all-cities {
+  display: block;
+  font-size: 16px;
+  color: #494f8590;
+  margin: 0 auto;
+  padding: 20px;
+  padding-bottom: 30px;
+  line-height: 1;
 }
 
 footer {
